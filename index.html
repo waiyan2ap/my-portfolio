@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://unpkg.com/7.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="vista_info.ico">
+  <link rel="stylesheet" href="https://unpkg.com/7.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Desktop -->
-    <div class="desktop">
-        <div class="desktop-icons">
-      <a href="#about" class="desktop-icon">
+
+  <div class="desktop">
+    
+    <!-- Desktop Shortcut Icons -->
+    <div class="desktop-icons">
+      <div class="desktop-icon" onclick="openWin('about')">
         <span>💻</span>
         <div>My Computer</div>
-      </a>
-      <a href="#projects" class="desktop-icon">
+      </div>
+      <div class="desktop-icon" onclick="openWin('projects')">
         <span>📁</span>
         <div>Projects</div>
-      </a>
-      <a href="#contact" class="desktop-icon">
+      </div>
+      <div class="desktop-icon" onclick="openWin('contact')">
         <span>✉️</span>
         <div>Contact</div>
-      </a>
+      </div>
     </div>
 
-    <!-- About -->
+    <!-- WINDOW 1: About Me -->
     <div id="about" class="window glass active portfolio-window">
       <div class="title-bar">
         <div class="title-bar-text">System Properties - About Me</div>
         <div class="title-bar-controls">
-          <a href="#desktop" aria-label="Minimize"><button aria-label="Minimize"></button></a>
-          <button aria-label="Maximize"></button>
-          <a href="#desktop" aria-label="Close"><button aria-label="Close"></button></a>
+          <button aria-label="Minimize" onclick="closeWin('about')"></button>
+          <button aria-label="Maximize" onclick="toggleMax('about')"></button>
+          <button aria-label="Close" onclick="closeWin('about')"></button>
         </div>
       </div>
       <div class="window-body has-space">
@@ -43,14 +46,14 @@
       </div>
     </div>
 
-    <!-- Projects -->
-    <div id="projects" class="window glass portfolio-window">
+    <!-- WINDOW 2: Projects -->
+    <div id="projects" class="window glass active portfolio-window">
       <div class="title-bar">
         <div class="title-bar-text">Windows Explorer - My Projects</div>
         <div class="title-bar-controls">
-          <a href="#desktop"><button aria-label="Minimize"></button></a>
-          <button aria-label="Maximize"></button>
-          <a href="#desktop"><button aria-label="Close"></button></a>
+          <button aria-label="Minimize" onclick="closeWin('projects')"></button>
+          <button aria-label="Maximize" onclick="toggleMax('projects')"></button>
+          <button aria-label="Close" onclick="closeWin('projects')"></button>
         </div>
       </div>
       <div class="window-body has-space">
@@ -62,14 +65,14 @@
       </div>
     </div>
 
-    <!-- Contact -->
-    <div id="contact" class="window glass portfolio-window ">
+    <!-- WINDOW 3: Contact -->
+    <div id="contact" class="window glass active portfolio-window">
       <div class="title-bar">
         <div class="title-bar-text">Windows Mail - Contact Me</div>
         <div class="title-bar-controls">
-          <a href="#desktop"><button aria-label="Minimize"></button></a>
-          <button aria-label="Maximize"></button>
-          <a href="#desktop"><button aria-label="Close"></button></a>
+          <button aria-label="Minimize" onclick="closeWin('contact')"></button>
+          <button aria-label="Maximize" onclick="toggleMax('contact')"></button>
+          <button aria-label="Close" onclick="closeWin('contact')"></button>
         </div>
       </div>
       <div class="window-body has-space">
@@ -79,16 +82,54 @@
       </div>
     </div>
 
-    <!-- Taskbar -->
+    <!-- Bottom Taskbar -->
     <div class="taskbar">
-      <a href="#about" class="start-orb" title="Start">W7</a>
+      <button class="start-orb" onclick="openWin('about')" title="Start">W7</button>
       <div class="tray-clock">
         <div id="clock-time">12:00 PM</div>
-        <div id="clock-date">11/3/2026</div>
+        <div id="clock-date">11/4/2026</div>
       </div>
     </div>
 
-    <script>
+  </div>
+
+  <script>
+    // 1. Open a window (and close any other open window)
+    function openWin(id) {
+      document.querySelectorAll('.portfolio-window').forEach(win => {
+        win.classList.remove('is-open');
+      });
+      const win = document.getElementById(id);
+      if (win) {
+        win.classList.add('is-open');
+      }
+    }
+
+    // 2. Minimize or Close a window
+    function closeWin(id) {
+      const win = document.getElementById(id);
+      if (win) {
+        win.classList.remove('is-open', 'is-maximized');
+        const maxBtn = win.querySelector('[aria-label="Restore"]');
+        if (maxBtn) {
+          maxBtn.setAttribute('aria-label', 'Maximize');
+        }
+      }
+    }
+
+    // 3. Maximize / Restore a window
+    function toggleMax(id) {
+      const win = document.getElementById(id);
+      if (!win) return;
+      win.classList.toggle('is-maximized');
+      const maxBtn = win.querySelector('[aria-label="Maximize"], [aria-label="Restore"]');
+      const isMax = win.classList.contains('is-maximized');
+      if (maxBtn) {
+        maxBtn.setAttribute('aria-label', isMax ? 'Restore' : 'Maximize');
+      }
+    }
+
+    // 4. Live Taskbar Clock
     function updateClock() {
       const now = new Date();
       document.getElementById('clock-time').textContent =
@@ -99,5 +140,6 @@
     updateClock();
     setInterval(updateClock, 1000);
   </script>
+
 </body>
 </html>
