@@ -150,20 +150,30 @@ button,
 .start-orb {
   all: unset;
   box-sizing: border-box;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #7be3ff, #0a58ca 70%, #032b66);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 8px rgba(0, 195, 255, 0.6);
-  color: white;
-  font-weight: bold;
-  font-size: 12px;
+  background-image: url('assets/icons/start-orb.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
   cursor: url('assets/cursors/aero-pointer.cur') 5 0, url('assets/cursors/aero-pointer.png') 5 0, pointer;
+  transition: transform 0.1s ease, filter 0.15s ease;
+  filter: drop-shadow(0 0 3px rgba(0, 180, 255, 0.4));
+}
+
+.start-orb:hover {
+  background-image: url('assets/icons/start-orb-hover.svg');
+  filter: drop-shadow(0 0 8px rgba(0, 220, 255, 0.85));
+}
+
+.start-orb:active {
+  background-image: url('assets/icons/start-orb-pressed.svg');
+  filter: drop-shadow(0 0 2px rgba(0, 140, 255, 0.6));
+  transform: scale(0.96);
 }
 
 .start-orb:before,
