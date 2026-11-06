@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   user-select: none;
+  cursor: url('assets/cursors/aero-arrow.cur') 0 0, url('assets/cursors/aero-arrow.png') 0 0, default;
 }
 
 body, html {
@@ -10,6 +11,17 @@ body, html {
   height: 100%;
   overflow: hidden;
   font-family: "Segoe UI", Tahoma, sans-serif;
+  cursor: url('assets/cursors/aero-arrow.cur') 0 0, url('assets/cursors/aero-arrow.png') 0 0, default;
+}
+
+/* Interactive elements use Windows 7 Aero Link/Pointer Hand */
+a,
+button,
+[role="button"],
+.desktop-icon,
+.start-orb,
+.title-bar-controls button {
+  cursor: url('assets/cursors/aero-pointer.cur') 5 0, url('assets/cursors/aero-pointer.png') 5 0, pointer !important;
 }
 
 .desktop {
@@ -47,7 +59,7 @@ body, html {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   border: 1px solid transparent;
   border-radius: 3px;
-  cursor: pointer;
+  cursor: url('assets/cursors/aero-pointer.cur') 5 0, url('assets/cursors/aero-pointer.png') 5 0, pointer;
 }
 
 .desktop-icon:hover {
@@ -126,7 +138,7 @@ body, html {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  cursor: pointer;
+  cursor: url('assets/cursors/aero-pointer.cur') 5 0, url('assets/cursors/aero-pointer.png') 5 0, pointer;
 }
 
 .start-orb:before,
