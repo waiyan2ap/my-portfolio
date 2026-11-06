@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/icons/computer.png">
   <link rel="stylesheet" href="https://unpkg.com/7.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -14,15 +15,15 @@
     <!-- Desktop Shortcut Icons -->
     <div class="desktop-icons">
       <div class="desktop-icon" onclick="openWin('about')">
-        <span>💻</span>
+        <img class="desktop-icon-img" src="assets/icons/computer.png" alt="My Computer" draggable="false">
         <div>My Computer</div>
       </div>
       <div class="desktop-icon" onclick="openWin('projects')">
-        <span>📁</span>
+        <img class="desktop-icon-img" src="assets/icons/projects.png" alt="Projects" draggable="false">
         <div>Projects</div>
       </div>
       <div class="desktop-icon" onclick="openWin('contact')">
-        <span>✉️</span>
+        <img class="desktop-icon-img" src="assets/icons/contact.png" alt="Contact" draggable="false">
         <div>Contact</div>
       </div>
     </div>
@@ -30,7 +31,10 @@
     <!-- WINDOW 1: About Me -->
     <div id="about" class="window glass active portfolio-window">
       <div class="title-bar">
-        <div class="title-bar-text">System Properties - About Me</div>
+        <div class="title-bar-text">
+          <img class="window-title-icon" src="assets/icons/computer.png" alt="">
+          <span>System Properties - About Me</span>
+        </div>
         <div class="title-bar-controls">
           <button aria-label="Minimize" onclick="closeWin('about')"></button>
           <button aria-label="Maximize" onclick="toggleMax('about')"></button>
@@ -48,7 +52,10 @@
     <!-- WINDOW 2: Projects -->
     <div id="projects" class="window glass active portfolio-window">
       <div class="title-bar">
-        <div class="title-bar-text">Windows Explorer - My Projects</div>
+        <div class="title-bar-text">
+          <img class="window-title-icon" src="assets/icons/projects.png" alt="">
+          <span>Windows Explorer - My Projects</span>
+        </div>
         <div class="title-bar-controls">
           <button aria-label="Minimize" onclick="closeWin('projects')"></button>
           <button aria-label="Maximize" onclick="toggleMax('projects')"></button>
@@ -67,7 +74,10 @@
     <!-- WINDOW 3: Contact -->
     <div id="contact" class="window glass active portfolio-window">
       <div class="title-bar">
-        <div class="title-bar-text">Windows Mail - Contact Me</div>
+        <div class="title-bar-text">
+          <img class="window-title-icon" src="assets/icons/contact.png" alt="">
+          <span>Windows Mail - Contact Me</span>
+        </div>
         <div class="title-bar-controls">
           <button aria-label="Minimize" onclick="closeWin('contact')"></button>
           <button aria-label="Maximize" onclick="toggleMax('contact')"></button>
