@@ -54,12 +54,12 @@
       </div>
     </div>
 
-    <!-- WINDOW 2: Projects -->
-    <div id="projects" class="window glass active portfolio-window">
+    <!-- WINDOW 2: Projects (Windows 7 Explorer) -->
+    <div id="projects" class="window glass active portfolio-window explorer-window">
       <div class="title-bar">
         <div class="title-bar-text">
           <img class="window-title-icon" src="assets/icons/projects.png" alt="">
-          <span>Windows Explorer - My Projects</span>
+          <span>Libraries\Documents\Projects</span>
         </div>
         <div class="title-bar-controls">
           <button aria-label="Minimize" onclick="closeWin('projects')"></button>
@@ -67,12 +67,43 @@
           <button aria-label="Close" onclick="closeWin('projects')"></button>
         </div>
       </div>
-      <div class="window-body has-space">
-        <p><strong>Featured Repositories:</strong></p>
-        <ul class="tree-view">
-          <li><strong>CPU Scheduling Simulator</strong> — Interactive web visualizer</li>
-          <li><strong>Retro CLI Narrative Game</strong> — Terminal adventure game</li>
-        </ul>
+
+      <!-- Explorer Navigation Bar -->
+      <div class="explorer-nav-bar">
+        <div class="explorer-nav-buttons">
+          <button class="nav-btn" disabled>◀</button>
+          <button class="nav-btn" disabled>▶</button>
+        </div>
+        <div class="explorer-address-bar">
+          <img class="address-icon" src="assets/icons/projects.png" alt="">
+          <span>Libraries <span class="bc-arrow">▶</span> Documents <span class="bc-arrow">▶</span> <b class="current">Projects</b></span>
+          <span class="address-refresh">↻</span>
+        </div>
+        <div class="explorer-search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Search Projects" readonly>
+        </div>
+      </div>
+
+      <!-- Explorer Command Bar -->
+      <div class="explorer-command-bar">
+        <span class="cmd-item">Organize ▾</span>
+        <span class="cmd-item">Include in library ▾</span>
+        <span class="cmd-item">Share with ▾</span>
+        <span class="cmd-item">New folder</span>
+      </div>
+
+      <!-- File Area -->
+      <div class="window-body explorer-body">
+        <div class="explorer-section-title">Applications (1)</div>
+        <div class="explorer-tile selected" ondblclick="window.open('https://jlpt-simulator-eight.vercel.app/', '_blank')" onclick="if(window.matchMedia('(hover: none)').matches) window.open('https://jlpt-simulator-eight.vercel.app/', '_blank')" title="Double-click to open JLPT Exam Simulator">
+          <img class="tile-icon" src="assets/icons/jlpt.png" alt="JLPT">
+          <div class="tile-info">
+            <div class="tile-title">JLPT Exam Simulator.exe</div>
+            <div class="tile-desc">Full timed mock exams for the Japanese-Language Proficiency Test (JLPT N1–N5): vocabulary, grammar, reading, and listening.</div>
+            <div class="tile-meta">Next.js • TypeScript • Tailwind CSS • Vercel</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -154,7 +185,7 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // 5. Windows 7 Boot Screen (~2s fade, skippable)
+    // 5. Windows 7 Boot Screen
     function dismissBoot() {
       const b = document.getElementById('boot-screen');
       if (b && !b.classList.contains('fade-out')) {

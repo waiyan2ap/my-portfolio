@@ -214,3 +214,43 @@ button,
   opacity: 0;
   pointer-events: none;
 }
+
+/* =========================================
+   Windows 7 Explorer - Projects Window
+   ========================================= */
+.explorer-window.is-open { display: flex !important; flex-direction: column; width: min(700px, 94vw); height: min(320px, 70vh); overflow: hidden; }
+.explorer-window.is-maximized { width: 100%; height: calc(100vh - 40px); }
+
+/* Explorer Bars */
+.explorer-nav-bar { display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: linear-gradient(#f7f9fb, #e6edf4); border-bottom: 1px solid #d4dce5; }
+.explorer-nav-buttons { display: flex; gap: 4px; }
+.nav-btn { all: unset; box-sizing: border-box; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(#ebf4fa, #cce5f7 50%, #b2d7f3 51%, #c9e6fb); border: 1px solid #7ea3c2; font-size: 10px; color: #1c4266; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 0 #fff; }
+.nav-btn:disabled { opacity: 0.45; filter: grayscale(80%); cursor: default !important; }
+
+.explorer-address-bar, .explorer-search-bar { display: flex; align-items: center; background: #fff; border: 1px solid #a0b4c8; border-radius: 2px; height: 26px; padding: 0 8px; font-size: 12px; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08); }
+.explorer-address-bar { flex: 1; gap: 6px; color: #1e395b; }
+.explorer-address-bar .address-icon { width: 14px; height: 14px; object-fit: contain; }
+.explorer-address-bar .current { font-weight: 600; color: #000; }
+.explorer-address-bar .bc-arrow { color: #5b7897; font-size: 8px; }
+.explorer-address-bar .address-refresh { margin-left: auto; color: #4e6b88; cursor: pointer; font-size: 13px; }
+.explorer-search-bar { width: 150px; gap: 4px; }
+.explorer-search-bar .search-icon { font-size: 11px; opacity: 0.6; }
+.explorer-search-bar input { border: none; outline: none; width: 100%; font: inherit; font-size: 11px; background: transparent; color: #333; }
+
+.explorer-command-bar { display: flex; gap: 12px; padding: 4px 12px; background: linear-gradient(#fcfdfe, #e9eef3); border-bottom: 1px solid #d0d8e2; font-size: 11px; color: #203e5f; }
+.explorer-command-bar .cmd-item { cursor: pointer; padding: 2px 6px; border-radius: 2px; }
+.explorer-command-bar .cmd-item:hover { background: rgba(255, 255, 255, 0.7); box-shadow: 0 0 1px rgba(0, 0, 0, 0.25); }
+
+/* File Area & Tile */
+.explorer-body { flex: 1; background: #fff; padding: 12px 14px; overflow-y: auto; margin: 0 !important; }
+.explorer-section-title { font-size: 11px; font-weight: 600; color: #1c3c5e; border-bottom: 1px solid #dce4ed; padding-bottom: 4px; margin-bottom: 10px; }
+.explorer-tile { display: flex; align-items: flex-start; gap: 14px; padding: 10px 14px; border-radius: 3px; border: 1px solid transparent; cursor: url('assets/cursors/aero-pointer.cur') 5 0, url('assets/cursors/aero-pointer.png') 5 0, pointer; transition: background 0.1s; }
+.explorer-tile .tile-icon { width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25)); flex-shrink: 0; }
+.explorer-tile .tile-title { font-size: 13px; font-weight: 600; color: #0c2b4d; margin-bottom: 3px; }
+.explorer-tile .tile-desc { font-size: 11px; color: #444; line-height: 1.35; margin-bottom: 4px; }
+.explorer-tile .tile-meta { font-size: 11px; color: #666; }
+.explorer-tile:hover, .explorer-tile.selected { background: linear-gradient(rgba(235, 244, 254, 0.95), rgba(209, 232, 255, 0.95)); border-color: rgba(125, 180, 240, 0.85); box-shadow: inset 0 0 1px #fff; }
+
+@media (max-width: 600px) {
+  .explorer-search-bar, .explorer-command-bar .cmd-item:nth-child(n+3) { display: none; }
+}
