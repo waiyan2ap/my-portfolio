@@ -10,6 +10,11 @@
 </head>
 <body>
 
+  <!-- Windows 7 Boot Screen -->
+  <div id="boot-screen" onclick="dismissBoot()">
+    <img src="assets/boot.gif" alt="Starting Windows" draggable="false">
+  </div>
+
   <div class="desktop">
     
     <!-- Desktop Shortcut Icons -->
@@ -148,6 +153,17 @@
     }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // 5. Windows 7 Boot Screen (~2s fade, skippable)
+    function dismissBoot() {
+      const b = document.getElementById('boot-screen');
+      if (b && !b.classList.contains('fade-out')) {
+        b.classList.add('fade-out');
+        setTimeout(() => b.remove(), 600);
+      }
+    }
+    setTimeout(dismissBoot, 3000);
+    window.addEventListener('keydown', dismissBoot, { once: true });
   </script>
 
 </body>
